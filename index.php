@@ -17,22 +17,22 @@ function run($message)
 }
 
 $message = [
-    "from_email" => $_POST['fromOnePerson'],
-    "from_name" => $_POST['Doe'],
-    "subject" => $_POST['subject'],
-    "text" => $_POST['textSend'],
-    "to" => [
+    "from_email" => "simonusman55@gmail.com",
+    "from_name" => "Simon Usman",
+    "subject" => "Na Why",
+    "text" => "you know why",
+    "to" => 
         [
-            "email" => $_POST['toAnotherPerson'],
+            "email" => "ndacedj@gmail.com",
             "type" => "to"
         ]
-    ]
+    
 ];
 run($message);
 }
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -55,7 +55,7 @@ run($message);
 		
 		<div class="col-sm-8 mx-auto bg-light p-5" style="margin-top: 4rem;">
 
-			<form method="POST"  action="" >
+			<form method="POST">
 				<input type="text" name="grant_type" value="client_credentials" hidden>
 				<input type="text" value="b886e00301cd3f0adcb749735a2c3824" name="client_id" hidden>
 				<input type="text" value="6993b93cc381d8fdd21eab7abf6d8c40" name="client_secret" hidden>
@@ -92,3 +92,4 @@ run($message);
 </body>
 </html>
 
+ -->
