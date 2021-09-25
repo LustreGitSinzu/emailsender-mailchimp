@@ -1,7 +1,6 @@
 <?php
 
-if (isset($_POST['submit'])){
-require_once 'vendor/autoload.php';
+require_once('vendor/autoload.php');
 
 function run($message)
 {
@@ -18,19 +17,19 @@ function run($message)
 
 $message = [
     "from_email" => "simonusman55@gmail.com",
-    "from_name" => "Simon Usman",
-    "subject" => "Na Why",
-    "text" => "you know why",
-    "to" => 
+    "subject" => "Hello world",
+    "text" => "Welcome to Mailchimp Transactional!",
+    "to" => [
         [
             "email" => "ndacedj@gmail.com",
             "type" => "to"
         ]
-    
+    ]
 ];
 run($message);
-}
 ?>
+
+
 
 <!-- <!DOCTYPE html>
 <html>
