@@ -21,7 +21,7 @@ $message = [
     "text" => "Welcome to Mailchimp Transactional!",
     "to" => [
         [
-            "email" => "ndacedj@gmail.com",
+            "email" => "sfiverr0@gmail.com",
             "type" => "to"
         ]
     ]
