@@ -1,5 +1,5 @@
 {
     "require": {
-        "mailchimp/transactional": "^1.0"
+        "wildbit/postmark-php": "^4.0"
     }
 }
