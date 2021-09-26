@@ -6,7 +6,7 @@ use Postmark\PostmarkClient;
 if(isset($_POST['submit'])){
 
 
-$client = new PostmarkClient("b2e26d5a-b53b-4818-adb2-438554a04ebb");
+$client = new PostmarkClient("gitApiKey");
 $fromEmail = "ruqayyahsalihu@diwafrica.org";
 $toEmail = "ruqayyahsalihu@diwafrica.org";
 $subject = $_POST['subject'];
