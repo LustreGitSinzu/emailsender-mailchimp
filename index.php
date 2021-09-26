@@ -1,37 +1,45 @@
 <?php
 
 require_once('vendor/autoload.php');
+use Postmark\PostmarkClient;
 
-function run($message)
-{
-    try {
-        $mailchimp = new MailchimpTransactional\ApiClient();
-        $mailchimp->setApiKey('PUgc6EQSRNUYnM_pkBekKA');
+if(isset($_POST['submit'])){
 
-        $response = $mailchimp->messages->send(["message" => $message]);
-        print_r($response);
-    } catch (Error $e) {
-        echo 'Error: ', $e->getMessage(), "\n";
-    }
+
+$client = new PostmarkClient("b2e26d5a-b53b-4818-adb2-438554a04ebb");
+$fromEmail = "ruqayyahsalihu@diwafrica.org";
+$toEmail = "ruqayyahsalihu@diwafrica.org";
+$subject = $_POST['subject'];
+$htmlBody = $_POST['textSend'];
+$textBody = "welcome to DIWA";
+$tag = "example-email-tag";
+$trackOpens = true;
+$trackLinks = "None";
+$messageStream = "outbound";
+
+// Send an email:
+$sendResult = $client->sendEmail(
+  $fromEmail,
+  $toEmail,
+  $subject,
+  $htmlBody,
+  $textBody,
+  $tag,
+  $trackOpens,
+  NULL, // Reply To
+  NULL, // CC
+  NULL, // BCC
+  NULL, // Header array
+  NULL, // Attachment array
+  $trackLinks,
+  NULL, // Metadata array
+  $messageStream
+);
 }
 
-$message = [
-    "from_email" => "simonusman55@gmail.com",
-    "subject" => "Hello world",
-    "text" => "Welcome to Mailchimp Transactional!",
-    "to" => [
-        [
-            "email" => "sfiverr0@gmail.com",
-            "type" => "to"
-        ]
-    ]
-];
-run($message);
 ?>
 
-
-
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -54,15 +62,15 @@ run($message);
 		
 		<div class="col-sm-8 mx-auto bg-light p-5" style="margin-top: 4rem;">
 
-			<form method="POST">
-				<input type="text" name="grant_type" value="client_credentials" hidden>
+			<form method="POST"  action="" >
+				<!-- <input type="text" name="grant_type" value="client_credentials" hidden>
 				<input type="text" value="b886e00301cd3f0adcb749735a2c3824" name="client_id" hidden>
-				<input type="text" value="6993b93cc381d8fdd21eab7abf6d8c40" name="client_secret" hidden>
-				<div class="form-group">
+				<input type="text" value="6993b93cc381d8fdd21eab7abf6d8c40" name="client_secret" hidden> -->
+				<!-- <div class="form-group">
 					<label for="fromMail">From:</label>
 					<input type="text" class="form-control" name="Doe" placeholder="enter name">
 					<input type="email" name="fromOnePerson" class="form-control" id="fromMail" placeholder="yourmail@mail.com">
-				</div>
+				</div> -->
 
 				<div class="form-group">
 					<label for="toMail">To:</label>
@@ -91,4 +99,3 @@ run($message);
 </body>
 </html>
 
- -->
